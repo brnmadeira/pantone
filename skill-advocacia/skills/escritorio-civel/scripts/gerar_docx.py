@@ -11,6 +11,7 @@ Convenções (ver references/estilo.md):
   ### Subseção      → negrito + itálico
   > citação         → bloco recuado
   - item / 1. item  → lista
+  | a | b |         → tabela (1ª linha = cabeçalho em negrito)
   ---               → quebra de página
   <center>x</center>→ linha centralizada
   **negrito**, *itálico*; [PREENCHER...] e [VERIFICAR...] destacados em amarelo.
@@ -57,6 +58,30 @@ def add_runs(par, texto: str, base_bold=False, base_italic=False, size=None):
             run.font.size = Pt(size)
         if destaque:
             run.font.highlight_color = WD_COLOR_INDEX.YELLOW
+
+
+def adicionar_tabela(doc, linhas: list[str]):
+    """Converte linhas de tabela Markdown (| a | b |) em tabela do Word."""
+    rows = []
+    for l in linhas:
+        cells = [c.strip() for c in l.strip().strip("|").split("|")]
+        if all(re.fullmatch(r":?-{2,}:?", c) for c in cells if c):
+            continue  # linha separadora |---|---|
+        rows.append(cells)
+    if not rows:
+        return
+    ncols = max(len(r) for r in rows)
+    tab = doc.add_table(rows=len(rows), cols=ncols)
+    tab.style = "Table Grid"
+    for i, r in enumerate(rows):
+        for j in range(ncols):
+            cel = tab.cell(i, j)
+            par = cel.paragraphs[0]
+            par.paragraph_format.first_line_indent = Cm(0)
+            par.paragraph_format.line_spacing = 1.0
+            par.paragraph_format.space_after = Pt(2)
+            add_runs(par, r[j] if j < len(r) else "", base_bold=(i == 0), size=10)
+    doc.add_paragraph().paragraph_format.space_after = Pt(0)
 
 
 def campo_pagina(par):
@@ -119,6 +144,12 @@ def converter(md: str, saida: str, fonte: str, cabecalho: str | None):
         add_runs(p, texto)
 
     citacao: list[str] = []
+    tabela: list[str] = []
+
+    def flush_tabela():
+        if tabela:
+            adicionar_tabela(doc, tabela)
+            tabela.clear()
 
     def flush_citacao():
         if not citacao:
@@ -136,6 +167,12 @@ def converter(md: str, saida: str, fonte: str, cabecalho: str | None):
         s = l.strip()
         if not s.startswith(">"):
             flush_citacao()
+        if not s.startswith("|"):
+            flush_tabela()
+        elif s.endswith("|"):
+            flush()
+            tabela.append(s)
+            continue
         if not s:
             flush()
             continue
@@ -182,6 +219,7 @@ def converter(md: str, saida: str, fonte: str, cabecalho: str | None):
         buffer.append(l)
     flush()
     flush_citacao()
+    flush_tabela()
     doc.save(saida)
 
 

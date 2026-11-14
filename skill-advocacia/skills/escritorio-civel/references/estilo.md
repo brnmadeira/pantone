@@ -24,6 +24,7 @@
 - `> citação` → citação longa: recuo de 4 cm, fonte 10, espaçamento simples.
 - `**negrito**`, `*itálico*`.
 - Listas `- item` ou `1. item` → listas (use para pedidos: `a)`, `b)` também funciona como parágrafo).
+- Tabelas Markdown (`| a | b |` com linha `|---|---|`) → tabela do Word com cabeçalho em negrito.
 - Linha só com `---` → quebra de página.
 - Bloco de assinatura: linhas curtas no fim; use `<center>texto</center>` para centralizar uma linha.
 - Marcadores `[PREENCHER: ...]` e `[VERIFICAR]` saem destacados em amarelo no .docx.
