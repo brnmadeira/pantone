@@ -1,0 +1,7 @@
+{
+  "name": "escritorio-civel",
+  "version": "1.0.0",
+  "description": "Equipe multi-agente para escritório de advocacia cível brasileiro: triagem, pesquisa jurídica, estratégia, redação de peças, análise de contratos, revisão crítica e controle de prazos do CPC, com entrega em Word (.docx).",
+  "author": { "name": "brnmadeira" },
+  "keywords": ["advocacia", "direito civil", "cpc", "peticao", "contratos", "prazos"]
+}

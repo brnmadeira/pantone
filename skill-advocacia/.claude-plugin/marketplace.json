@@ -1,0 +1,13 @@
+{
+  "name": "skill-advocacia",
+  "owner": {
+    "name": "brnmadeira"
+  },
+  "plugins": [
+    {
+      "name": "escritorio-civel",
+      "source": "./",
+      "description": "Equipe multi-agente para advocacia cível brasileira (peças, contratos, prazos)."
+    }
+  ]
+}
