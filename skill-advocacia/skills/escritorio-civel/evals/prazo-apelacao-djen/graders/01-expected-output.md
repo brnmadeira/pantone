@@ -1,7 +1,0 @@
----
-type: llm
-focus: trace
-weight: 1
----
-
-The result matches this description: Usa apenas o controle de prazos (sem acionar a equipe toda); prazo de 15 dias úteis (art. 1.003, §5º); publicação em 19/11/2026, contagem a partir de 23/11/2026 considerando o feriado de 20/11; vencimento em 11/12/2026, com memória de cálculo e aviso para conferir feriados locais e portarias do TJSP; sem prazo em dobro.

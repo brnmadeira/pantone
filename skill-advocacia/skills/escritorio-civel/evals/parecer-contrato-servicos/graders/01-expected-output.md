@@ -1,7 +1,0 @@
----
-type: llm
-focus: trace
-weight: 1
----
-
-The result matches this description: Fluxo de análise de contrato; parecer em .docx com recomendação de não assinar sem ajustes; aponta escopo indeterminado (orçamento verbal), pagamento antecipado desproporcional sem vinculação a etapas, prazo prorrogável unilateralmente, cláusula de exoneração de responsabilidade, perda integral dos valores (cláusula penal excessiva — CC art. 413 / CDC art. 51 e 53 se houver relação de consumo), foro de eleição abusivo; aponta cláusulas ausentes (cronograma, medições, garantia, ART/RRT, seguro, multa por atraso); traz redação substitutiva.
