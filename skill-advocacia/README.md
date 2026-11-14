@@ -1,5 +1,8 @@
 # Escritório Cível — plugin multi-agente para Claude Code
 
+> ⚠️ **EM DESENVOLVIMENTO — não instale nem use em casos reais.** A skill ainda não foi testada
+> e o conteúdo jurídico das referências ainda não foi revisado por advogado.
+
 Equipe de agentes especialistas para um escritório de advocacia cível brasileiro:
 
 | Agente | Função |
@@ -14,7 +17,7 @@ Equipe de agentes especialistas para um escritório de advocacia cível brasilei
 
 A skill `escritorio-civel` coordena a equipe e entrega o resultado em Word (.docx).
 
-## Instalação
+## Instalação (somente quando a versão estável for publicada)
 
 **Como plugin (recomendado)** — dentro do Claude Code:
 
